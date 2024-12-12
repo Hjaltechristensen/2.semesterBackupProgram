@@ -286,7 +286,5 @@ namespace BackupProgram
 			lblLoading.Visible = false;
 			lblLoadingDots.Visible = false; // Fjerner alt når koiperingen er færdig og animationen er færdig
 		}
-
-
 	}
 }
