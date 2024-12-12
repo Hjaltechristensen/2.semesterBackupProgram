@@ -185,6 +185,13 @@ namespace BackupProgram
 			}
 		}
 
+		/// <summary>
+		/// Sætter op og kører batchfilen
+		/// </summary>
+		/// <param name="batFilePath"></param>
+		/// <param name="sourceFolder"></param>
+		/// <param name="destinationFolder"></param>
+		/// <returns></returns>
 		private async Task<bool> RunBatFile(string batFilePath, string sourceFolder, string destinationFolder)
 		{
 			bool success = false;
@@ -192,7 +199,7 @@ namespace BackupProgram
 			{
 				Process process = new Process();
 
-				process.StartInfo.FileName = batFilePath; // Reference til den bat fil der skal køres
+				process.StartInfo.FileName = batFilePath; // Reference til den batch fil der skal køres
 				process.StartInfo.Arguments = $"\"{sourceFolder}\" \"{destinationFolder}\\backup\""; // Opretter en ny mappe med navn 'backup' og gemmer der i
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = true; // Sikre at der ikke åbnes consol vindue
@@ -246,6 +253,10 @@ namespace BackupProgram
 			return success;
 		}
 
+		/// <summary>
+		/// Viser loading animation indtil doneLoading er er true
+		/// </summary>
+		/// <returns></returns>
 		private async Task ShowLoading()
 		{
 			lblLoading.Visible = true;
